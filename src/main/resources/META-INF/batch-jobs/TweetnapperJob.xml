@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<job id="tweetnapper-job" 
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0">
+	<step id="tweetnapper-chunk" next="tweetnapper-task">
+		<chunk>
+			<reader ref="TweetnapperReader"></reader>
+			<processor ref="TweetnapperProcessor"></processor>
+			<writer ref="TweetnapperWriter"></writer>
+		</chunk>
+	</step>
+	<step id="tweetnapper-task">
+		<batchlet ref="TweetnapperBatchlet"></batchlet>
+		<end on="COMPLETED"/>
+	</step>
+</job>
+
